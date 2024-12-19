@@ -1,0 +1,28 @@
+To correct the `calc()` function issues, use parentheses to ensure correct operator precedence and maintain consistent units within the calculations:
+
+```css
+.element {
+  width: calc(50% - 100px);
+}
+
+/*Corrected version*/
+.element {
+  width: calc((50% - 100px)); /*Explicitly setting the precedence*/
+}
+
+/* Another example with unit issues */
+.element {
+  width: calc(50% + 10em); /*Mixing percentage with em unit is generally okay */
+}
+
+.element {
+  height: calc(100px + 20%); /*This will result in error due to mixing px and percentage*/
+}
+
+/* Corrected Version */
+.element {
+  height: calc(100px + (20%/100) * 100px); /*Correct calculation by converting 20% to pixels*/
+}
+```
+
+By carefully using parentheses and ensuring consistent unit usage, you can effectively prevent errors when working with the `calc()` function.
